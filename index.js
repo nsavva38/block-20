@@ -55,101 +55,56 @@ addNumberButton.addEventListener(`click`, (event) => {
     if (event.target.innerText === `Sort 1`) {
       console.log(`A button was clicked`);
   
-    
-
-    // Check if there are elements left to sort
-    if (inputNumberArray.length > 0) {
-      // Get the first element from the array
-      const { value: currentNumber, element: currentElement } = inputNumberArray[0];
-
-      if (currentNumber % 2 === 0) {
-        // Sort into even pile
-        const numberEvenOutput = document.querySelector('#evens-output');
-        const numberEvenLI = document.createElement('li');
-        numberEvenLI.classList.add('evenNumber');
-        numberEvenLI.innerText = currentNumber;
-        numberEvenOutput.append(numberEvenLI);
+      // Sort 1: Sort the first element only
+      if (inputNumberArray.length > 0) {
+        const { value: currentNumber, element: currentElement } = inputNumberArray[0];
+  
+        if (currentNumber % 2 === 0) {
+          const numberEvenOutput = document.querySelector('#evens-output');
+          const numberEvenLI = document.createElement('li');
+          numberEvenLI.classList.add('evenNumber');
+          numberEvenLI.innerText = currentNumber;
+          numberEvenOutput.append(numberEvenLI);
+        } else {
+          const numberOddOutput = document.querySelector('#odds-output');
+          const numberOddLI = document.createElement('li');
+          numberOddLI.classList.add('oddNumber');
+          numberOddLI.innerText = currentNumber;
+          numberOddOutput.append(numberOddLI);
+        }
+  
+        inputNumberArray.shift();
+        currentElement.remove();
+  
+        console.log('Remaining elements in the array:', inputNumberArray.map(item => item.value));
       } else {
-        // Sort into odd pile
-        const numberOddOutput = document.querySelector('#odds-output');
-        const numberOddLI = document.createElement('li');
-        numberOddLI.classList.add('oddNumber');
-        numberOddLI.innerText = currentNumber;
-        numberOddOutput.append(numberOddLI);
+        console.log('No more elements to sort.');
       }
-
-      // Remove the sorted element from the input array
-      inputNumberArray.shift();
-
-      // Remove the corresponding numberLI element from the DOM
-      currentElement.remove();
-
-      // Log the remaining elements in the array
-      console.log('Remaining elements in the array:', inputNumberArray.map(item => item.value));
-    } else {
-      console.log('No more elements to sort.');
+    } else if (event.target.innerText === `Sort All`) {
+      // Sort All: Sort all elements
+      while (inputNumberArray.length > 0) {
+        const { value: currentNumber, element: currentElement } = inputNumberArray[0];
+  
+        if (currentNumber % 2 === 0) {
+          const numberEvenOutput = document.querySelector('#evens-output');
+          const numberEvenLI = document.createElement('li');
+          numberEvenLI.classList.add('evenNumber');
+          numberEvenLI.innerText = currentNumber;
+          numberEvenOutput.append(numberEvenLI);
+        } else {
+          const numberOddOutput = document.querySelector('#odds-output');
+          const numberOddLI = document.createElement('li');
+          numberOddLI.classList.add('oddNumber');
+          numberOddLI.innerText = currentNumber;
+          numberOddOutput.append(numberOddLI);
+        }
+  
+        inputNumberArray.shift();
+        currentElement.remove();
+      }
+  
+      console.log('All elements have been sorted.');
     }
-
-  }
-
-
-
-
-
-
-
-
-
-
-  
-  //,{ once: true }); // The listener is removed after being called once), put in between
-  //event listener closing brace and closing parenthesis
-
-//         console.log(`before sort: ${inputNumberArray}`);
-
-
-      //   else {
-      //   // sort all
-
-      //   for (let i = 0; i < inputNumberArray.length; i++) {
-
-      //     if(inputNumberArray[i] % 2 === 0) {
-
-      //       const numberEvenOutput = document.querySelector(`#evens-output`);
-  
-      //       const numberEvenLI = document.createElement(`li`)
-      //       numberEvenLI.classList.add(`evenNumber`);
-          
-      //       numberEvenLI.innerText = inputNumberArray[i];
-      //       numberEvenOutput.append(numberEvenLI);
-  
-  
-      //     } else {
-  
-      //       // go to odd pile
-      //       const numberOddOutput = document.querySelector(`#odds-output`);
-  
-      //       const numberOddLI = document.createElement(`li`)
-      //       numberOddLI.classList.add(`oddNumber`);
-          
-      //       numberOddLI.innerText = inputNumberArray[0];
-      //       numberOddOutput.append(numberOddLI);
-  
-      //     }
-  
-      //         inputNumberArray.shift();
-
-
-      //   }
-
-
-      // }
-
-    // }
-
-    // }
-
-
-});
+  });
 
 });
