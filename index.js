@@ -9,7 +9,6 @@ addNumberButton.addEventListener(`click`, (event) => {
   event.preventDefault();
   console.log(`Clicked`);
   const userInput = document.querySelector(`input`);
-  console.log(`userInput: ${userInput}`);
   console.log(`userInput.value: ${userInput.value}`);
 
   const numberOutput = document.querySelector(`#number-bank-output`);
@@ -23,9 +22,8 @@ addNumberButton.addEventListener(`click`, (event) => {
 
   const inputNumber = document.querySelectorAll(`.inputNumber`);
   const inputArray = [...inputNumber];
-  console.log(`inputArray: ${inputArray[0].textContent}`);
 
-  const inputNumberArray = inputArray.map((item) => {
+  let inputNumberArray = inputArray.map((item) => {
     return Number(item.textContent);
   });
 
@@ -34,14 +32,12 @@ addNumberButton.addEventListener(`click`, (event) => {
 
 
 
-  const sortButtons = document.querySelector(`#numberBank`); // or #sortedButtons
+  const sortButtons = document.querySelector(`#sortButtons`); // or #sortedButtons
 
-  console.log(`numberOutput: ${numberOutput}`);
-  console.log()
+  console.log(``);
 
   sortButtons.addEventListener(`click`, (event) => {
 
-    event.preventDefault();
 
     numberLI.remove();
 
@@ -51,35 +47,16 @@ addNumberButton.addEventListener(`click`, (event) => {
       if(event.target.innerText === `Sort 1`) {
         //sort 1
 
-        //take the first number in the inputNumberArray
-        const toSortOne = inputNumberArray[0];
-
         //go to even pile
-        if(toSortOne % 2 === 0) {
-
-        
-
+        if(inputNumberArray[0] % 2 === 0) {
 
           const numberEvenOutput = document.querySelector(`#evens-output`);
 
           const numberEvenLI = document.createElement(`li`)
           numberEvenLI.classList.add(`evenNumber`);
         
-          numberEvenLI.innerText = toSortOne;
+          numberEvenLI.innerText = inputNumberArray[0];
           numberEvenOutput.append(numberEvenLI);
-
-
-
-          // const numberOutput = document.querySelector(`#number-bank-output`);
-
-          // const numberLI = document.createElement(`li`)
-          // numberLI.classList.add(`inputNumber`);
-        
-          // numberLI.innerText = userInput.value;
-          // numberOutput.append(numberLI);
-
-
-      
 
 
         } else {
@@ -90,7 +67,7 @@ addNumberButton.addEventListener(`click`, (event) => {
           const numberOddLI = document.createElement(`li`)
           numberOddLI.classList.add(`oddNumber`);
         
-          numberOddLI.innerText = toSortOne;
+          numberOddLI.innerText = inputNumberArray[0];
           numberOddOutput.append(numberOddLI);
 
         }
@@ -99,20 +76,66 @@ addNumberButton.addEventListener(`click`, (event) => {
 
         for (let i = 0; i < inputNumberArray.length; i++) {
 
-          // if( (i + 1) >= inputNumberArray.length) {
-          //   inputNumberArray.pop();
-          // } else {
-          //   inputNumberArray[i] = inputNumberArray[i + 1];
-          // }
-          inputNumberArray[i] = inputNumberArray[i + 1];
+          if( (i + 1) === inputNumberArray.length) {
+            inputNumberArray.pop();
+          } else {
+            inputNumberArray[i] = inputNumberArray[i + 1];
+          }
+          // inputNumberArray[i] = inputNumberArray[i + 1];
 
           console.log(`after sort: ${inputNumberArray}`);
+          console.log(``);
           
 
         }
 
-      } else {
+      } else if (event.target.innerText === `Sort All`) {
         //sort all
+
+        for (let i = 0; i < inputNumberArray.length; i++) {
+
+          if(inputNumberArray[0] % 2 === 0) {
+
+            const numberEvenOutput = document.querySelector(`#evens-output`);
+  
+            const numberEvenLI = document.createElement(`li`)
+            numberEvenLI.classList.add(`evenNumber`);
+          
+            numberEvenLI.innerText = inputNumberArray[0];
+            numberEvenOutput.append(numberEvenLI);
+  
+  
+          } else {
+  
+            //go to odd pile
+            const numberOddOutput = document.querySelector(`#odds-output`);
+  
+            const numberOddLI = document.createElement(`li`)
+            numberOddLI.classList.add(`oddNumber`);
+          
+            numberOddLI.innerText = inputNumberArray[0];
+            numberOddOutput.append(numberOddLI);
+  
+          }
+  
+          console.log(`before sort: ${inputNumberArray}`);
+
+          if( (i + 1) === inputNumberArray.length) {
+            inputNumberArray.pop();
+          } else {
+            inputNumberArray[i] = inputNumberArray[i + 1];
+          }
+          // inputNumberArray[i] = inputNumberArray[i + 1];
+
+          
+          
+
+        }
+        console.log(`after sort: ${inputNumberArray}`);
+        console.log(``);
+
+
+
 
         //to reset the array:
         // inputNumberArray = [];
