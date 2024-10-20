@@ -28,26 +28,23 @@ addNumberButton.addEventListener(`click`, (event) => {
   });
 
   console.log(`inputNumberArray: ${inputNumberArray}`);
-
-
-
-
-  const sortButtons = document.querySelector(`#sortButtons`); // or #sortedButtons
-
   console.log(``);
 
+
+
+  
+  const sortButtons = document.querySelector(`#sortButtons`);
+
   sortButtons.addEventListener(`click`, (event) => {
-
-
     numberLI.remove();
-
     console.log(event);
-    if(event.target.tagName === `BUTTON`) {
+    if (event.target.tagName === `BUTTON`) {
       console.log(`A button was clicked`);
+   
       if(event.target.innerText === `Sort 1`) {
-        //sort 1
+        // sort 1
 
-        //go to even pile
+        // go to even pile
         if(inputNumberArray[0] % 2 === 0) {
 
           const numberEvenOutput = document.querySelector(`#evens-output`);
@@ -61,7 +58,7 @@ addNumberButton.addEventListener(`click`, (event) => {
 
         } else {
 
-          //go to odd pile
+          // go to odd pile
           const numberOddOutput = document.querySelector(`#odds-output`);
 
           const numberOddLI = document.createElement(`li`)
@@ -81,7 +78,7 @@ addNumberButton.addEventListener(`click`, (event) => {
           } else {
             inputNumberArray[i] = inputNumberArray[i + 1];
           }
-          // inputNumberArray[i] = inputNumberArray[i + 1];
+          inputNumberArray[i] = inputNumberArray[i + 1];
 
           console.log(`after sort: ${inputNumberArray}`);
           console.log(``);
@@ -90,7 +87,7 @@ addNumberButton.addEventListener(`click`, (event) => {
         }
 
       } else if (event.target.innerText === `Sort All`) {
-        //sort all
+        // sort all
 
         for (let i = 0; i < inputNumberArray.length; i++) {
 
@@ -107,7 +104,7 @@ addNumberButton.addEventListener(`click`, (event) => {
   
           } else {
   
-            //go to odd pile
+            // go to odd pile
             const numberOddOutput = document.querySelector(`#odds-output`);
   
             const numberOddLI = document.createElement(`li`)
@@ -125,7 +122,7 @@ addNumberButton.addEventListener(`click`, (event) => {
           } else {
             inputNumberArray[i] = inputNumberArray[i + 1];
           }
-          // inputNumberArray[i] = inputNumberArray[i + 1];
+          inputNumberArray[i] = inputNumberArray[i + 1];
 
           
           
@@ -137,14 +134,14 @@ addNumberButton.addEventListener(`click`, (event) => {
 
 
 
-        //to reset the array:
-        // inputNumberArray = [];
+        // to reset the array:
+        inputNumberArray = [];
 
       }
 
     }
 
-    })
+    },{ once: true }); // The listener is removed after being called once),
 
 
 });
