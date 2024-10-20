@@ -52,9 +52,11 @@ addNumberButton.addEventListener(`click`, (event) => {
 
   // Attach the event listener once
   newSortButtons.addEventListener(`click`, (event) => {
-    if (event.target.tagName === `BUTTON`) {
+    if (event.target.innerText === `Sort 1`) {
       console.log(`A button was clicked`);
   
+    
+
     // Check if there are elements left to sort
     if (inputNumberArray.length > 0) {
       // Get the first element from the array
@@ -87,25 +89,8 @@ addNumberButton.addEventListener(`click`, (event) => {
     } else {
       console.log('No more elements to sort.');
     }
+
   }
-});
-  
-  
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -122,78 +107,49 @@ addNumberButton.addEventListener(`click`, (event) => {
 
 //         console.log(`before sort: ${inputNumberArray}`);
 
-//         for (let i = 0; i < inputNumberArray.length; i++) {
 
-//           if( (i + 1) === inputNumberArray.length) {
-//             inputNumberArray.pop();
-//           } else {
-//             inputNumberArray[i] = inputNumberArray[i + 1];
-//           }
-//           inputNumberArray[i] = inputNumberArray[i + 1];
+      //   else {
+      //   // sort all
 
-//           console.log(`after sort: ${inputNumberArray}`);
-//           console.log(``);
+      //   for (let i = 0; i < inputNumberArray.length; i++) {
+
+      //     if(inputNumberArray[i] % 2 === 0) {
+
+      //       const numberEvenOutput = document.querySelector(`#evens-output`);
+  
+      //       const numberEvenLI = document.createElement(`li`)
+      //       numberEvenLI.classList.add(`evenNumber`);
           
-
-//         }
-
-//       } 
-//         else if (event.target.innerText === `Sort All`) {
-//         // sort all
-
-//         for (let i = 0; i < inputNumberArray.length; i++) {
-
-//           if(inputNumberArray[i] % 2 === 0) {
-
-//             const numberEvenOutput = document.querySelector(`#evens-output`);
+      //       numberEvenLI.innerText = inputNumberArray[i];
+      //       numberEvenOutput.append(numberEvenLI);
   
-//             const numberEvenLI = document.createElement(`li`)
-//             numberEvenLI.classList.add(`evenNumber`);
+  
+      //     } else {
+  
+      //       // go to odd pile
+      //       const numberOddOutput = document.querySelector(`#odds-output`);
+  
+      //       const numberOddLI = document.createElement(`li`)
+      //       numberOddLI.classList.add(`oddNumber`);
           
-//             numberEvenLI.innerText = inputNumberArray[i];
-//             numberEvenOutput.append(numberEvenLI);
+      //       numberOddLI.innerText = inputNumberArray[0];
+      //       numberOddOutput.append(numberOddLI);
   
+      //     }
   
-//           } else {
-  
-//             // go to odd pile
-//             const numberOddOutput = document.querySelector(`#odds-output`);
-  
-//             const numberOddLI = document.createElement(`li`)
-//             numberOddLI.classList.add(`oddNumber`);
-          
-//             numberOddLI.innerText = inputNumberArray[0];
-//             numberOddOutput.append(numberOddLI);
-  
-//           }
-  
-//           console.log(`before sort: ${inputNumberArray}`);
-
-//           if( (i + 1) === inputNumberArray.length) {
-//             inputNumberArray.pop();
-//           } else {
-//             inputNumberArray[i] = inputNumberArray[i + 1];
-//           }
-//           inputNumberArray[i] = inputNumberArray[i + 1];
-
-          
-          
-
-//         }
-//         console.log(`after sort: ${inputNumberArray}`);
-//         console.log(``);
+      //         inputNumberArray.shift();
 
 
+      //   }
 
 
-//         // to reset the array:
-//         inputNumberArray = [];
+      // }
 
-//       }
+    // }
 
-//     }
+    // }
 
-//     },{ once: true }); // The listener is removed after being called once),
 
+});
 
 });
