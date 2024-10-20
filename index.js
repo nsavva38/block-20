@@ -1,8 +1,3 @@
-console.log(`test`);
-
-//43 minutes in, Buttons when clicked
-//58 minutes, 
-//how to remove item
 const inputNumberArray = [];
 
 const addNumberButton = document.querySelector(`#number-button`);
@@ -10,37 +5,28 @@ addNumberButton.addEventListener(`click`, (event) => {
   event.preventDefault();
   console.log(`Clicked`);
   const userInput = document.querySelector(`#number`);
+
+  if (userInput.value === `` || isNaN(userInput.value)) {
+    return;
+  }
+
   console.log(`userInput.value: ${userInput.value}`);
 
   const numberOutput = document.querySelector(`#number-bank-output`);
 
   const numberLI = document.createElement(`li`)
   numberLI.id = `numberLI-${userInput.value}`;
-  // numberLI.classList.add(`inputNumber`);
   numberLI.innerText = userInput.value;
   numberOutput.append(numberLI);
 
 
-  const inputNumber = document.querySelectorAll(`.inputNumber`);
-  const inputArray = [...inputNumber];
-
-
   
   inputNumberArray.push( {value: userInput.value, element: numberLI });
-  // let inputNumberArray = inputArray.map((item) => {
-  //   return Number(item.textContent);
-  // });
 
   userInput.value = ``;
   console.log(`inputNumberArray: ${inputNumberArray}`);
   console.log(inputNumberArray);
   console.log(``);
-
-
-
-
-
-
 
 
   
