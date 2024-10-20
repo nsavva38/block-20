@@ -21,8 +21,6 @@ addNumberButton.addEventListener(`click`, (event) => {
 
   userInput.value = ``;
 
-
-
   
   const sortButtons = document.querySelector(`#sortButtons`);
 
@@ -78,7 +76,7 @@ addNumberButton.addEventListener(`click`, (event) => {
       }
 
     }
-    
+
   });
 
 });
